@@ -7,12 +7,23 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Vue -->
   <script src="https://unpkg.com/vue@3"></script>
+  <!-- Axios -->
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+  <!-- --- -->
   <title>Vue Email List</title>
 </head>
-<body>
+<body class="flex justify-center items-center h-screen bg-gradient-to-b from-cyan-500 to-blue-500">
 
-  <div id="app" class="flex">
-
+  <div id="app" class="p-6 bg-white/50 rounded-2xl">
+    <div class="text-center">
+      <button class="py-2 px-5 bg-sky-500 text-white font-bold rounded-2xl hover:bg-sky-700 shadow-md shadow-black active:shadow-sm" @click="doNcalls()">Generate</button>
+      <button class="ml-4 py-2 px-5 bg-red-500 text-white font-bold rounded-2xl hover:bg-red-700 shadow-md shadow-black active:shadow-sm" @click="mails = []">Clear</button>
+    </div>
+    <div>
+      <ul class="mt-4 h-96 w-96 overflow-y-auto rounded-2xl border-6">
+        <li v-for="(mail, index) in mails" class="py-2 pl-2" :class="[ index%2==0 ? 'bg-sky-200' : 'bg-sky-50' ]">{{mail}}</li>
+      </ul>
+    </div>
   </div>
 
   <script src="./js/script.js"></script>  

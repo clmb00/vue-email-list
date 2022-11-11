@@ -7,7 +7,6 @@ createApp({
       numberOfMails: 0,
       mails: [],
       userNumber: 10,
-      mailsReady: 0,
       loading: false
     }
   },
@@ -16,11 +15,9 @@ createApp({
       axios.get(this.apiUrl)
        .then((mail)=>{
         this.mails.push(mail.data.response);
-        this.mailsReady++
        })
        .catch((error)=>{
         this.mails.push(error.code);
-        this.mailsReady++
        })
     },
     doNcalls(n = this.numberOfMails){
@@ -30,7 +27,6 @@ createApp({
     clear(){
       this.mails = [];
       this.loading = false;
-      this.mailsReady = 0;
       this.numberOfMails = 0;
     }
   }

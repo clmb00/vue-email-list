@@ -78,17 +78,17 @@
       <input type="text" class="py-2 mx-3 pl-2 rounded-xl outline-none focus:text-center shadow-md shadow-black focus:shadow-sm" v-model="userNumber">
       <button class="py-2 px-5 bg-red-500 text-white font-bold rounded-2xl hover:bg-red-700 shadow-md shadow-black active:shadow-sm" @click="clear()">Clear</button>
     </div>
-    <div v-show="mailsReady == numberOfMails && loading">
+    <div v-show="mails.length == numberOfMails && loading">
       <ul class="mt-4 h-96 w-96 overflow-y-auto rounded-2xl border-6">
         <li v-for="(mail, index) in mails" class="py-2 pl-2" :class="[ index%2==0 ? 'bg-sky-200' : 'bg-sky-50' ]">{{mail}}</li>
       </ul>
     </div>
-    <div v-show="mailsReady == numberOfMails && !loading">
+    <div v-show="mails.length == numberOfMails && !loading">
       <p class="mt-4 h-96 w-96 flex justify-center pt-6 font-bold">
         Click on Generate to create {{userNumber}} emails!
       </p>
     </div>
-    <div v-show="mailsReady < numberOfMails && loading">
+    <div v-show="mails.length < numberOfMails && loading">
       <div class="mt-4 h-96 w-96 flex justify-center items-center">
         <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
       </div>

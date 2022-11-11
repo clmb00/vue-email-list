@@ -4,8 +4,9 @@ createApp({
   data(){
     return{
       apiUrl: 'https://flynn.boolean.careers/exercises/api/random/mail',
-      numberOfMails: 10,
+      numberOfMails: 0,
       mails: [],
+      userNumber: 10,
       mailsReady: 0,
       loading: false
     }
@@ -23,13 +24,14 @@ createApp({
        })
     },
     doNcalls(n = this.numberOfMails){
-      this.mailsReady = 0;
+      this.numberOfMails += parseInt(this.userNumber);
       for(i=0; i<n; i++) this.getMailFromApi();
     },
     clear(){
       this.mails = [];
       this.loading = false;
       this.mailsReady = 0;
+      this.numberOfMails = 0;
     }
   }
 }).mount('#app')
